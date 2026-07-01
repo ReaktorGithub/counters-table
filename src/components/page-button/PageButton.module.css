@@ -1,0 +1,19 @@
+.button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  border: 1px solid #CED5DE;
+  cursor: pointer;
+  transition: .2s;
+
+  color: #1F2939;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.disabled {
+  cursor: default;
+  background: #F2F5F8;
+}
+

@@ -1,7 +1,8 @@
 .tableContainer {
   border: 1px solid #E0E5EB;
   border-radius: 12px;
-  overflow: hidden;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 .table {
@@ -11,10 +12,13 @@
 }
 
 .tableHead {
-  background-color: #F0F3F7;
   height: 32px;
 
   th {
+    position: sticky;
+    background-color: #F0F3F7;
+    top: 0;
+    z-index: 1;
     font-size: 13px;
     font-weight: 500;
     color: #697180;
@@ -47,4 +51,22 @@
     background-color: #F7F8F9;
     transition: .2s;
   }
+}
+
+.footer {
+  height: 48px;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 8px;
+  border-top: 1px solid #E0E5EB;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+
+.paginator {
+  display: flex;
+  gap: 8px;
 }
