@@ -103,14 +103,14 @@ function getPages(current: number, total: number) {
   }
 
   if (current <= 3) {
-    return [1, 2, 3, '...', total - 2, total - 1, total];
+    return [1, 2, 3, 0, total - 2, total - 1, total];
   }
 
   if (current >= total - 2) {
-    return [1, 2, 3, '...', total - 2, total - 1, total];
+    return [1, 2, 3, 0, total - 2, total - 1, total];
   }
 
-  return [1, '...', current - 1, current, current + 1, '...', total];
+  return [1, 0, current - 1, current, current + 1, 0, total];
 }
 
 const MAX_ITEMS_PER_PAGE = 20;
@@ -182,15 +182,15 @@ const CountersTable = () => {
       </table>
       <div className={styles.footer}>
         <div className={styles.paginator}>
-          {getPages(currentPage, totalPages).map((item, index) =>
-            item === '...' ? (
+          {getPages(currentPage, totalPages).map((item) =>
+            !item ? (
               <span key={item}>...</span>
             ) : (
               <PageButton
                 key={item}
                 text={String(item)}
                 isDisabled={item === currentPage}
-                onClick={() => setCurrentPage(Number(item))}
+                onClick={() => setCurrentPage(item)}
               />
             )
           )}
